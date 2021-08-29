@@ -1,0 +1,27 @@
+{{msg}}
+{{# each patients}}
+
+<div class="row">
+  {{# each this}}
+
+  <div class="col-sm-6 col-md-4">
+    <div class="thumbnail text-center" style ="border-width: 0px" >
+      <img src= "{{this.imgPath}}" alt="..." class="img-responsive">
+      <div class="caption">
+        <h3>{{this.firstName}} {{this.lastName}}</h3>
+
+        <div class="clearfix">
+          <div class="PPS pull-left">Email: {{this.email}}</div>
+          <div class="PPS pull-left">PPS: {{this.ppsNumber}}</div>
+          <div class="Age pull-left">Age: {{this.Age}}</div>
+
+
+          <a href="/user/profile/{{this._id}}" class="btn btn-success pull-right" role="button">View Patient Details</a>
+        </div>
+      </div>
+    </div>
+  </div>
+  {{/each}}
+
+</div>
+{{/each}}

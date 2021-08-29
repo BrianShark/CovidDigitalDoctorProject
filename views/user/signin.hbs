@@ -1,0 +1,34 @@
+
+
+<div=class = "text-center">
+  <div class ="text-center">
+    <img class ="mt-4 mb-4" style = "max-width:380px max-height: 380px; " src="https://images.unsplash.com/photo-1584118624012-df056829fbd0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxzZWFyY2h8NXx8Y292aWQlMjAxOXxlbnwwfHwwfHw%3D&auto=format&fit=crop&w=500&q=60" >
+
+      <h1 class = "mb-4">Sign In</h1>
+      {{#if hasErrors}}
+        <div class="alert alert-danger">
+          {{# each messages}}
+          <p>{{this}}</p>
+          {{/each}}
+        </div>
+      {{/if}}
+      <form style = "max-width:480px; margin:auto;"action="/user/signin" method = "post">
+        <div class = "form group">
+          <label for = "email">E-Mail</label>
+          <input type = "text" id="email" name ="email" class = "form-control">
+        </div>
+
+        <div class = "form-group">
+          <label for = "password">Password</label>
+          <input type = "password" id="password" name ="password" class = "form-control">
+        </div>
+        <br>
+        <input type="hidden" name="_csrf" value ="{{csrfToken}}">
+        <button type = "submit" class ="btn btn-primary"> Sign In</button>
+
+      </form>
+
+
+
+  </div>
+</div>

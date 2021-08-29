@@ -1,0 +1,40 @@
+
+<div=class = "text-center">
+  <div class ="text-center">
+    <img class ="mt-4 mb-4" width="200" height="200"  src="https://cdn3.iconfinder.com/data/icons/vector-icons-6/96/256-512.png" >
+
+      <h1 class = "mb-4">Create Patient</h1>
+
+      <form style = "max-width:480px; margin:auto;"action="/user/newpatient" method = "post">
+        <div class = "form group">
+          <label for = "first">First Name:</label>
+          <input type = "text" id="first" name ="first" class = "form-control">
+        </div>
+
+        <div class = "form-group">
+          <label for = "last">Last Name:</label>
+          <input type = "text" id="last" name ="last" class = "form-control">
+        </div>
+
+        <div class = "form-group">
+          <label for = "email">Email: </label>
+          <input type = "email" id="email" name ="email" class = "form-control">
+        </div>
+
+        <div class = "form-group">
+          <label for = "last">Age:</label>
+          <input type = "text" id="age" name ="age" class = "form-control">
+        </div>
+
+        <div class = "form-group">
+          <label for = "last">PPS:</label>
+          <input type = "text" id="pps" name ="pps" class = "form-control">
+        </div>
+        <br>
+          <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+        <button type = "submit" class ="btn btn-primary"> Create Patient</button>
+
+      </form>
+
+  </div>
+</div>

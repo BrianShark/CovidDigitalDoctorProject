@@ -1,0 +1,49 @@
+<nav class="navbar navbar-expand-lg navbar-light bg-warning mb-4">
+  <div class="container-fluid">
+    <a href="/">
+      <img  href="/" src="https://docs.google.com/uc?id=14FPPo3mNt7d1MGYpZMLy3tgeZDi-Ck6P" alt="" width="124.3" height="44">
+
+</a>
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText" aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarText">
+      <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+        {{# if login}}
+
+        <li class="nav-item">
+          <a class="nav-link" href="/covidapp/index"><b>Patients</b>
+          <span class="badge badge-danger">{{totalPatients}}</span>
+        </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/covidapp/info">Information</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/newpatient">Create Patient</a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/logout">Logout</a>
+        </li>
+
+        {{else}}
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/user/signup"><b>Sign Up</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/user/signin"><b>Sign In</b></a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" href="/covidapp/info"><b>Information</b></a>
+        </li>
+
+        {{/if}}
+
+      </ul>
+      <span class="navbar-text">
+        <a class="nav-link" href="https://www.gmit.ie/"><b>GMIT 2021</b></a>
+
+      </span>
+    </div>
+  </div>
+</nav>

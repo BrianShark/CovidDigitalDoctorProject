@@ -1,0 +1,140 @@
+<h1>Patient Information</h1>
+
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 pt-3 px-4">
+         <div class="d-flex justify-content-between flex-wrap flex-md-nowrap align-items-center pb-2 mb-3 border-bottom">
+          <h3>{{this.first}} {{this.last}}</h3>
+          <br>
+          <h4>Age: {{this.age}}</h4>
+          <h4>  PPS: {{this.pps}}</h4>
+           <div class="btn-toolbar mb-2 mb-md-0">
+             <div class="btn-group mr-2">
+               <button class="btn btn-sm btn-outline-secondary">Share</button>
+               <button class="btn btn-sm btn-outline-secondary">Export</button>
+             </div>
+             <button class="btn btn-sm btn-outline-secondary dropdown-toggle">
+               <span data-feather="calendar"></span>
+               This week
+             </button>
+           </div>
+
+         </div>
+
+         <canvas id="myChart" width="400" height="150"></canvas>
+         <br>
+         <br>
+          <canvas id="myChart2" width="400" height="100"></canvas>
+<script>
+var ctx = document.getElementById('myChart').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [{{this.numberofReadingsBPM}}],
+        datasets: [{
+            label: 'BPM',
+            data: [{{this.bpm}}],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: false
+            }
+        }
+    }
+});
+</script>
+
+<script>
+var ctx = document.getElementById('myChart2').getContext('2d');
+var myChart = new Chart(ctx, {
+    type: 'line',
+    data: {
+        labels: [{{this.numberofReadingsSPO2}}],
+        datasets: [{
+            label: 'Oxygen Saturation',
+            data: [{{this.spo2}}],
+            backgroundColor: [
+                'rgba(255, 99, 132, 0.2)',
+                'rgba(54, 162, 235, 0.2)',
+                'rgba(255, 206, 86, 0.2)',
+                'rgba(75, 192, 192, 0.2)',
+                'rgba(153, 102, 255, 0.2)',
+                'rgba(255, 159, 64, 0.2)'
+            ],
+            borderColor: [
+                'rgba(255, 99, 132, 1)',
+                'rgba(54, 162, 235, 1)',
+                'rgba(255, 206, 86, 1)',
+                'rgba(75, 192, 192, 1)',
+                'rgba(153, 102, 255, 1)',
+                'rgba(255, 159, 64, 1)'
+            ],
+            borderWidth: 1
+        }]
+    },
+    options: {
+        scales: {
+            y: {
+                beginAtZero: false
+            }
+        }
+    }
+});
+</script>
+
+       </main>
+
+       <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.7.1/Chart.min.js"></script>
+       <script>
+         var ctx = document.getElementById("myChart");
+         var myChart = new Chart(ctx, {
+           type: 'line',
+           data: {
+             labels: [{{this.numberofReadings}}],
+             datasets: [{
+               data: [{{this.bpm}}],
+               lineTension: 0,
+               backgroundColor: 'transparent',
+               borderColor: '#007bff',
+               borderWidth: 4,
+               pointBackgroundColor: '#007bff'
+             }]
+           },
+
+           options: {
+             scales: {
+               yAxes: [{
+                 ticks: {
+                   beginAtZero: false
+                 }
+               }]
+             },
+             legend: {
+               display: false,
+             }
+           }
+         });
+       </script>
+       <br><br>
+         <form style = "max-width:480px; margin:auto;"action="/user/profile/{{this.id}}" method = "post">
+
+             <input type="hidden" name="_csrf" value="{{ csrfToken }}">
+           <button type = "submit" class ="btn btn-primary"> Send Email</button>
+         </form>
